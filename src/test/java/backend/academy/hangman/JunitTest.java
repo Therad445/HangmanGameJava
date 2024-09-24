@@ -71,33 +71,33 @@ public class JunitTest {
             //Arrange
             Difficulty difficulty = new Difficulty();
             //Act
-            String testDifficulty = "EASY";
+            String testDifficulty = "Легко";
             difficulty.setDifficulty(testDifficulty);
             String resultDifficulty = difficulty.getDifficulty();
             //Assert
-            assertEquals(testDifficulty, resultDifficulty);
+            assertEquals("EASY", resultDifficulty);
         }
 
         @Test public void choose_mediumDifficulty() {
             //Arrange
             Difficulty difficulty = new Difficulty();
             //Act
-            String testDifficulty = "MEDIUM";
+            String testDifficulty = "Средне";
             difficulty.setDifficulty(testDifficulty);
             String resultDifficulty = difficulty.getDifficulty();
             //Assert
-            assertEquals(testDifficulty, resultDifficulty);
+            assertEquals("MEDIUM", resultDifficulty);
         }
 
         @Test public void choose_hardDifficulty() {
             //Arrange
             Difficulty difficulty = new Difficulty();
             //Act
-            String testDifficulty = "HARD";
+            String testDifficulty = "сложно";
             difficulty.setDifficulty(testDifficulty);
             String resultDifficulty = difficulty.getDifficulty();
             //Assert
-            assertEquals(testDifficulty, resultDifficulty);
+            assertEquals("HARD", resultDifficulty);
         }
 
         @Test public void choose_nullDifficulty() {
