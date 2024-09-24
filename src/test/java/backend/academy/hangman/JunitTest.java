@@ -71,7 +71,7 @@ public class JunitTest {
             //Arrange
             Difficulty difficulty = new Difficulty();
             //Act
-            String testDifficulty = "EASY";
+            String testDifficulty = "Легко";
             difficulty.setDifficulty(testDifficulty);
             String resultDifficulty = difficulty.getDifficulty();
             //Assert
@@ -82,7 +82,7 @@ public class JunitTest {
             //Arrange
             Difficulty difficulty = new Difficulty();
             //Act
-            String testDifficulty = "MEDIUM";
+            String testDifficulty = "Средне";
             difficulty.setDifficulty(testDifficulty);
             String resultDifficulty = difficulty.getDifficulty();
             //Assert
@@ -93,7 +93,7 @@ public class JunitTest {
             //Arrange
             Difficulty difficulty = new Difficulty();
             //Act
-            String testDifficulty = "HARD";
+            String testDifficulty = "сложно";
             difficulty.setDifficulty(testDifficulty);
             String resultDifficulty = difficulty.getDifficulty();
             //Assert
