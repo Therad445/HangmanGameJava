@@ -1,43 +1,33 @@
 package backend.academy.hangman;
 
 import lombok.Getter;
+import lombok.extern.log4j.Log4j2;
 
+@Getter @Log4j2
 public class Difficulty {
+    private int attemptsLeft;
 
-     private enum DifficultyLevel {
-        EASY, MEDIUM, HARD;
+    @Getter private enum DifficultyParams {
+        EASY(6), MEDIUM(4), HARD(2);
+        private final int maxAttempts;
 
-    }
+        DifficultyParams(int attempts) {
+            this.maxAttempts = attempts;
+        }
 
-    private DifficultyLevel level;
-    @Getter private int attempts;
-
-    public Difficulty() {
-        this.level = DifficultyLevel.EASY;
-        this.attempts = 10;
-    }
-
-    public String getDifficulty() {
-        return switch (level) {
-            case EASY -> "EASY";
-            case MEDIUM -> "MEDIUM";
-            case HARD -> "HARD";
-        };
     }
 
     public void setDifficulty(String level) {
         String upperLevel = level.toUpperCase();
-        if (upperLevel.equals("ЛЕГКО")) {
-            this.level = DifficultyLevel.EASY;
-            this.attempts = 6;
+        if ((upperLevel.equals("ЛЕГКО")) || (upperLevel.isEmpty())) {
+            this.attemptsLeft = DifficultyParams.EASY.maxAttempts;
+            log.info("Выбрана легкая сложность");
         } else if (upperLevel.equals("СРЕДНЕ")) {
-            this.level = DifficultyLevel.MEDIUM;
-            this.attempts = 4;
+            this.attemptsLeft = DifficultyParams.MEDIUM.maxAttempts;
+            log.info("Выбрана средняя сложность");
         } else if (upperLevel.equals("СЛОЖНО")) {
-            this.level = DifficultyLevel.HARD;
-            this.attempts = 2;
-        } else if (upperLevel.isEmpty()) {
-            setDifficulty("ЛЕГКО");
+            this.attemptsLeft = DifficultyParams.HARD.maxAttempts;
+            log.info("Выбрана тяжелая сложность");
         } else {
             throw new IllegalArgumentException("Invalid difficulty level: " + level);
         }

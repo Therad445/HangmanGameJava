@@ -23,14 +23,12 @@ public class Main {
         log.info("Выберете сложность: [легко, средне, сложно]");
         Difficulty difficulties = new Difficulty();
         difficulties.setDifficulty(scanner.nextLine().toLowerCase());
-        log.info(difficulties.getDifficulty());
 
         Words words = new Words(HangmanGame.HANGMAN_WORDS().get(category));
         words.usingWord(words.randomWord());
         log.info("Слово выбрано.");
 
-        HangmanGame game = new HangmanGame(categories.usingCategory(), words.usingWord(), difficulties.attempts(),
-            difficulties.getDifficulty());
+        HangmanGame game = new HangmanGame(categories.usingCategory(), words.usingWord(), difficulties.attemptsLeft());
         log.info("Игра началась:");
         while (!game.gameOver()) {
             game.displayInfo();

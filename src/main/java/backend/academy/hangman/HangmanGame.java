@@ -15,9 +15,8 @@ public class HangmanGame {
 
     private final String category;
     private final String word;
-    private final String difficulty;
-    private StringBuilder usedWord;
-    private Set<Character> usedCharacters;
+    private final StringBuilder usedWord;
+    private final Set<Character> usedCharacters;
     private int attempts;
 
     static {
@@ -26,18 +25,16 @@ public class HangmanGame {
         HANGMAN_WORDS.put("ягоды", Arrays.asList("клубника", "еживика", "голубика", "брусника"));
     }
 
-    public HangmanGame(String category, String word, int attempts, String difficulty) {
+    public HangmanGame(String category, String word, int attempts) {
         this.category = category;
         this.word = word;
         this.attempts = attempts;
-        this.difficulty = difficulty;
         this.usedWord = new StringBuilder("_".repeat(word.length()));
         this.usedCharacters = new HashSet<>();
     }
 
     public void displayInfo() {
         log.info("Категория: {}", category);
-        log.info("Сложность: {}", difficulty);
         log.info("Осталось попыток: {}", attempts);
         log.info("Слово: {}", usedWord);
         log.info("Висилица:\n{}", HangmanPaint.hangmanPaint(attempts));

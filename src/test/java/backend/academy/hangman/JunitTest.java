@@ -23,7 +23,7 @@ public class JunitTest {
         @Test public void choose_AllFromAllCategory() {
             //Arrange
             List<String> testCategoriesArray = Arrays.asList("Books", "Films");
-            Categories categories = new Categories(testCategoriesArray);
+            Category categories = new Category(testCategoriesArray);
             //Act
             List<String> randomizedCategories = categories.randomizerCategories(2);
             //Assert
@@ -33,7 +33,7 @@ public class JunitTest {
         @Test public void choose_MoreFromLessCategory() {
             //Arange
             List<String> testCategory = Arrays.asList("Books", "Films");
-            Categories categories = new Categories(testCategory);
+            Category categories = new Category(testCategory);
             //Act
             Exception error = assertThrows(IllegalArgumentException.class, () -> {
                 categories.randomizerCategories(3);
@@ -45,7 +45,7 @@ public class JunitTest {
         @Test public void choose_OneFromAllCategory() {
             //Arrange
             List<String> testCategory = Arrays.asList("Books", "Films");
-            Categories categories = new Categories(testCategory);
+            Category categories = new Category(testCategory);
             //Act
             List<String> randomizedCategories = categories.randomizerCategories(1);
             //Assert
@@ -56,7 +56,7 @@ public class JunitTest {
         @Test public void choose_NoneFromAllCategory() {
             //Arrange
             List<String> testCategory = Arrays.asList("Books", "Films");
-            Categories categories = new Categories(testCategory);
+            Category categories = new Category(testCategory);
             //Act
             Exception error = assertThrows(IllegalArgumentException.class, () -> {
                 categories.randomizerCategories(0);
@@ -73,9 +73,8 @@ public class JunitTest {
             //Act
             String testDifficulty = "Легко";
             difficulty.setDifficulty(testDifficulty);
-            String resultDifficulty = difficulty.getDifficulty();
             //Assert
-            assertEquals("EASY", resultDifficulty);
+            assertEquals(6, difficulty.attemptsLeft());
         }
 
         @Test public void choose_mediumDifficulty() {
@@ -84,9 +83,8 @@ public class JunitTest {
             //Act
             String testDifficulty = "Средне";
             difficulty.setDifficulty(testDifficulty);
-            String resultDifficulty = difficulty.getDifficulty();
             //Assert
-            assertEquals("MEDIUM", resultDifficulty);
+            assertEquals(4, difficulty.attemptsLeft());
         }
 
         @Test public void choose_hardDifficulty() {
@@ -95,9 +93,8 @@ public class JunitTest {
             //Act
             String testDifficulty = "сложно";
             difficulty.setDifficulty(testDifficulty);
-            String resultDifficulty = difficulty.getDifficulty();
             //Assert
-            assertEquals("HARD", resultDifficulty);
+            assertEquals(2, difficulty.attemptsLeft());
         }
 
         @Test public void choose_nullDifficulty() {
@@ -107,7 +104,7 @@ public class JunitTest {
             String testDifficulty = "";
             difficulty.setDifficulty(testDifficulty);
             //Assert
-            assertEquals("EASY", difficulty.getDifficulty());
+            assertEquals(6, difficulty.attemptsLeft());
         }
 
         @Test public void choose_incorrectDifficulty() {
