@@ -1,24 +1,24 @@
 package backend.academy.hangman;
 
-import lombok.Getter;
-import lombok.Setter;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import lombok.Getter;
+import lombok.Setter;
 
 /*
 This class receive categoryArray and includes Category methods
 */
 
-@Setter @Getter public class Categories {
+@Getter @Setter public class Category {
     private List<String> categoriesArray;
-    @Getter private String usingCategory;
+    private String usingCategory;
 
-    public Categories(List<String> categoriesArray) {
+    public Category(List<String> categoriesArray) {
         this.categoriesArray = categoriesArray;
     }
 
-    public Categories(Map<String, List<String>> hangmanWords) {
+    public Category(Map<String, List<String>> hangmanWords) {
         this.categoriesArray = hangmanWords.keySet().stream().toList();
     }
 

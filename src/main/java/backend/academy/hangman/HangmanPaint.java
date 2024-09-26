@@ -1,7 +1,10 @@
 package backend.academy.hangman;
 
+import lombok.experimental.UtilityClass;
+
+@UtilityClass
 public class HangmanPaint {
-    private static final String[] hangmanPaint = {
+    private static final String[] HANGMAN_PAINT = {
         "",
         " O ",
         " O \n | ",
@@ -10,9 +13,9 @@ public class HangmanPaint {
         " O \n/0\\ \n/ ",
         " O \n/0\\ \n/ \\"
     };
-    private static final int maxAttempts = 6;
+    private static final int MAX_ATTEMPTS = 6;
 
-    public static String hangmanPaint(int attempts) {
-        return hangmanPaint[maxAttempts - attempts];
+    static String hangmanPaint(int attempts) {
+        return HANGMAN_PAINT[MAX_ATTEMPTS - attempts];
     }
 }
