@@ -20,9 +20,10 @@ public class HangmanGame {
     private int attempts;
 
     static {
-        HANGMAN_WORDS.put("животные", Arrays.asList("носорог", "тигр", "жираф", "кенгуру"));
-        HANGMAN_WORDS.put("фрукты", Arrays.asList("яблоко", "грейпфрукт", "апельсин", "мандарин"));
-        HANGMAN_WORDS.put("ягоды", Arrays.asList("клубника", "еживика", "голубика", "брусника"));
+        HANGMAN_WORDS.put("животные", Arrays.asList("носорог", "тигр", "жираф", "кенгуру", "лошадь", "кит", "лягушка"));
+        HANGMAN_WORDS.put("фрукты", Arrays.asList("яблоко", "грейпфрукт", "апельсин", "мандарин", "груша", "огуруец"));
+        HANGMAN_WORDS.put("ягоды", Arrays.asList("клубника", "ежевика", "голубика", "брусника", "земляника"));
+        HANGMAN_WORDS.put("молочные продукты", Arrays.asList("сыр", "йогурт", " молоко", "масло", "кефир"));
     }
 
     public HangmanGame(String category, String word, int attempts) {

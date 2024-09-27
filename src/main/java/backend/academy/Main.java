@@ -15,12 +15,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         Category categories = new Category(HangmanGame.HANGMAN_WORDS());
-        log.info("Выберите категорию:{}", categories.categoriesArray());
+        log.info("Выберите категорию:\n{}", String.join(", ", categories.categoriesArray()));
         String category = scanner.nextLine().toLowerCase();
         categories.usingCategory(category);
         log.info((categories.usingCategory()));
 
-        log.info("Выберете сложность: [легко, средне, сложно]");
+        log.info("Выберете сложность:\nлегко, средне, сложно");
         Difficulty difficulties = new Difficulty();
         difficulties.setDifficulty(scanner.nextLine().toLowerCase());
 
