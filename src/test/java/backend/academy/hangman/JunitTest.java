@@ -9,18 +9,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/*
-It's AAA unit tests
-
-            //Arrange
-            //Act
-            //Assert
-
-*/
 
 public class JunitTest {
-    @Nested class CategoryTest {
-        @Test public void choose_AllFromAllCategory() {
+    @Nested
+    class CategoryTest {
+        @Test
+        public void choose_AllFromAllCategory() {
             //Arrange
             List<String> testCategoriesArray = Arrays.asList("Books", "Films");
             Category categories = new Category(testCategoriesArray);
@@ -30,8 +24,9 @@ public class JunitTest {
             assertThat(randomizedCategories).isEqualTo(testCategoriesArray);
         }
 
-        @Test public void choose_MoreFromLessCategory() {
-            //Arange
+        @Test
+        public void choose_MoreFromLessCategory() {
+            //Arrange
             List<String> testCategory = Arrays.asList("Books", "Films");
             Category categories = new Category(testCategory);
             //Act
@@ -42,7 +37,8 @@ public class JunitTest {
             assertEquals("You choose more categories than in Array", error.getMessage());
         }
 
-        @Test public void choose_OneFromAllCategory() {
+        @Test
+        public void choose_OneFromAllCategory() {
             //Arrange
             List<String> testCategory = Arrays.asList("Books", "Films");
             Category categories = new Category(testCategory);
@@ -53,7 +49,8 @@ public class JunitTest {
 //            assertTrue(categories.contains(categories.getFirst()));
         }
 
-        @Test public void choose_NoneFromAllCategory() {
+        @Test
+        public void choose_NoneFromAllCategory() {
             //Arrange
             List<String> testCategory = Arrays.asList("Books", "Films");
             Category categories = new Category(testCategory);
@@ -66,8 +63,10 @@ public class JunitTest {
         }
     }
 
-    @Nested class DifficultyTest {
-        @Test public void choose_easyDifficulty() {
+    @Nested
+    class DifficultyTest {
+        @Test
+        public void choose_easyDifficulty() {
             //Arrange
             Difficulty difficulty = new Difficulty();
             //Act
@@ -77,7 +76,8 @@ public class JunitTest {
             assertEquals(6, difficulty.attemptsLeft());
         }
 
-        @Test public void choose_mediumDifficulty() {
+        @Test
+        public void choose_mediumDifficulty() {
             //Arrange
             Difficulty difficulty = new Difficulty();
             //Act
@@ -87,7 +87,8 @@ public class JunitTest {
             assertEquals(4, difficulty.attemptsLeft());
         }
 
-        @Test public void choose_hardDifficulty() {
+        @Test
+        public void choose_hardDifficulty() {
             //Arrange
             Difficulty difficulty = new Difficulty();
             //Act
@@ -97,7 +98,8 @@ public class JunitTest {
             assertEquals(2, difficulty.attemptsLeft());
         }
 
-        @Test public void choose_nullDifficulty() {
+        @Test
+        public void choose_nullDifficulty() {
             //Arrange
             Difficulty difficulty = new Difficulty();
             //Act
@@ -107,7 +109,8 @@ public class JunitTest {
             assertEquals(6, difficulty.attemptsLeft());
         }
 
-        @Test public void choose_incorrectDifficulty() {
+        @Test
+        public void choose_incorrectDifficulty() {
             //Arrange
             Difficulty difficulty = new Difficulty();
             //Act
@@ -120,8 +123,10 @@ public class JunitTest {
         }
     }
 
-    @Nested class WordsTest {
-        @Test public void choose_wordFromWords() {
+    @Nested
+    class WordsTest {
+        @Test
+        public void choose_wordFromWords() {
             //Arrange
             List<String> testWordsArray = Arrays.asList("Java", "Python", "C");
             Words words = new Words(testWordsArray);
@@ -131,10 +136,4 @@ public class JunitTest {
             assertTrue(testWordsArray.contains(word));
         }
     }
-
-//    @Nested class HangmanGameTest {
-//        @Test public void choose_hangmanGame() {
-//
-//        }
-//    }
 }

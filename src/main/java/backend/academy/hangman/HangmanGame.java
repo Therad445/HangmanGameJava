@@ -11,7 +11,8 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class HangmanGame {
-    @Getter private static final Map<String, List<String>> HANGMAN_WORDS = new HashMap<>();
+    @Getter
+    private static final Map<String, List<String>> HANGMAN_WORDS = new HashMap<>();
 
     private final String category;
     private final String word;

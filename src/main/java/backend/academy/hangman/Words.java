@@ -4,7 +4,9 @@ import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter @Getter public class Words {
+@Setter
+@Getter
+public class Words {
 
     private List<String> wordsArray;
     private String usingWord;

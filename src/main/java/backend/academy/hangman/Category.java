@@ -6,11 +6,10 @@ import java.util.Map;
 import lombok.Getter;
 import lombok.Setter;
 
-/*
-This class receive categoryArray and includes Category methods
-*/
 
-@Getter @Setter public class Category {
+@Getter
+@Setter
+public class Category {
     private List<String> categoriesArray;
     private String usingCategory;
 
@@ -22,9 +21,7 @@ This class receive categoryArray and includes Category methods
         this.categoriesArray = hangmanWords.keySet().stream().toList();
     }
 
-    /*
-    That method
-    */
+
     public List<String> randomizerCategories(int n) {
         if (n <= 0) {
             throw new IllegalArgumentException("You isn't choose categories in Array");
