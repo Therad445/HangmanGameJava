@@ -23,15 +23,18 @@ public class Difficulty {
         String upperLevel = level.toUpperCase();
         switch (upperLevel) {
             case "":
-            case "EASY":
+            case "ЛЕГКО":
                 this.attemptsLeft = DifficultyParams.EASY.maxAttempts;
                 log.info("Выбрана легкая сложность");
-            case "MEDIUM":
+                break;
+            case "СРЕДНЕ":
                 this.attemptsLeft = DifficultyParams.MEDIUM.maxAttempts;
                 log.info("Выбрана средняя сложность");
-            case "HARD":
+                break;
+            case "СЛОЖНО":
                 this.attemptsLeft = DifficultyParams.HARD.maxAttempts;
                 log.info("Выбрана тяжелая сложность");
+                break;
             default:
                 throw new IllegalArgumentException("Invalid difficulty level: " + level);
         }
