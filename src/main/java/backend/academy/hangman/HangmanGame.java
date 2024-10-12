@@ -11,8 +11,6 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class HangmanGame {
-    @Getter
-    private static final Map<String, List<String>> HANGMAN_WORDS = new HashMap<>();
 
     private final String category;
     private final String word;
@@ -20,12 +18,7 @@ public class HangmanGame {
     private final Set<Character> usedCharacters;
     private int attempts;
 
-    static {
-        HANGMAN_WORDS.put("животные", Arrays.asList("носорог", "тигр", "жираф", "кенгуру", "лошадь", "кит", "лягушка"));
-        HANGMAN_WORDS.put("фрукты", Arrays.asList("яблоко", "грейпфрукт", "апельсин", "мандарин", "груша", "огуруец"));
-        HANGMAN_WORDS.put("ягоды", Arrays.asList("клубника", "ежевика", "голубика", "брусника", "земляника"));
-        HANGMAN_WORDS.put("молочные продукты", Arrays.asList("сыр", "йогурт", " молоко", "масло", "кефир"));
-    }
+
 
     public HangmanGame(String category, String word, int attempts) {
         this.category = category;

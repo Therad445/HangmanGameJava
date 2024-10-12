@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        Category categories = new Category(HangmanGame.HANGMAN_WORDS());
+        Category categories = new Category(Words.HANGMAN_WORDS());
         log.info("Выберите категорию:\n{}", String.join(", ", categories.categoriesArray()));
         String category = scanner.nextLine().toLowerCase();
         categories.usingCategory(category);
@@ -24,7 +24,7 @@ public class Main {
         Difficulty difficulties = new Difficulty();
         difficulties.setDifficulty(scanner.nextLine().toLowerCase());
 
-        Words words = new Words(HangmanGame.HANGMAN_WORDS().get(category));
+        Words words = new Words(Words.HANGMAN_WORDS().get(category));
         words.usingWord(words.randomWord());
         log.info("Слово выбрано.");
 
