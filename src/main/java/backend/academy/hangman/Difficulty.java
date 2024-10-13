@@ -20,9 +20,11 @@ public class Difficulty {
     }
 
     public void setDifficulty(String level) {
+        if (level == null || level.isEmpty()) {
+            throw new IllegalArgumentException("Сложность не может быть пустой");
+        }
         String upperLevel = level.toUpperCase();
         switch (upperLevel) {
-            case "":
             case "ЛЕГКО":
                 this.attemptsLeft = DifficultyParams.EASY.maxAttempts;
                 log.info("Выбрана легкая сложность");
