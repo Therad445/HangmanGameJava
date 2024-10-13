@@ -1,30 +1,45 @@
 package backend.academy.hangman;
 
+import lombok.Getter;
+import lombok.Setter;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import lombok.Getter;
-import lombok.Setter;
+import java.util.concurrent.ThreadLocalRandom;
 
-@Setter
-@Getter
 public class Words {
+    private static final Map<String, List<String>> HANGMAN_WORDS = Collections.unmodifiableMap(createHangmanWords());
+    private final List<String> wordsList;
     @Getter
-    private static final Map<String, List<String>> HANGMAN_WORDS = createHangmanWords();
-    private List<String> wordsArray;
     private String usingWord;
 
-    public Words(List<String> wordsArray) {
-        this.wordsArray = wordsArray;
+    public Words(List<String> wordsList) {
+        if (wordsList == null || wordsList.isEmpty()) {
+            throw new IllegalArgumentException("Данные не могут быть пустыми");
+        }
+        this.wordsList = wordsList;
+        randomWord();
     }
 
-    public String randomWord() {
-        int indexRandomElement = (int) (Math.random() * wordsArray.size());
-        return wordsArray.get(indexRandomElement);
+    private void randomWord() {
+        if (usingWord != null) {
+            throw new IllegalArgumentException("Загаданное слово уже выбрано");
+        }
+        ThreadLocalRandom RANDOM = ThreadLocalRandom.current();
+        int indexRandomElement = RANDOM.nextInt(0, (wordsList.size() - 1));
+        this.usingWord = wordsList.get(indexRandomElement);
+    }
+
+    public static Map<String, List<String>> getHangmanWords() {
+        return HANGMAN_WORDS;
     }
 
     private static void addCategory(Map<String, List<String>> map, String category, String... words) {
+        if (category == null || category.isEmpty()) {
+            throw new IllegalArgumentException("Данные не могут быть пустыми");
+        }
         map.put(category, Arrays.asList(words));
     }
 

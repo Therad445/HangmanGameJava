@@ -78,11 +78,10 @@ public class JunitTest {
         public void choose_wordFromWords() {
             //Arrange
             List<String> testWordsArray = Arrays.asList("Java", "Python", "C");
-            Words words = new Words(testWordsArray);
             //Act
-            String word = words.randomWord();
+            Words words = new Words(testWordsArray);
             //Assert
-            assertTrue(testWordsArray.contains(word));
+            assertTrue(testWordsArray.contains(words.usingWord()));
         }
     }
 }
