@@ -15,10 +15,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         Category categories = new Category(Words.HANGMAN_WORDS());
-        log.info("Выберите категорию:\n{}", String.join(", ", categories.categoriesArray()));
+        log.info("Выберите категорию:\n{}", String.join(", ", categories.getCategoriesList()));
         String category = scanner.nextLine().toLowerCase();
-        categories.usingCategory(category);
-        log.info((categories.usingCategory()));
+        log.info((categories.setUsingCategory(category)));
 
         log.info("Выберете сложность:\nлегко, средне, сложно");
         Difficulty difficulties = new Difficulty();

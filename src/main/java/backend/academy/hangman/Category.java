@@ -4,32 +4,46 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import lombok.Getter;
-import lombok.Setter;
 
-
-@Getter
-@Setter
 public class Category {
-    private List<String> categoriesArray;
+    private final List<String> categoriesList;
+    @Getter
     private String usingCategory;
 
-    public Category(List<String> categoriesArray) {
-        this.categoriesArray = categoriesArray;
+    public Category(List<String> categoriesList) {
+        if (categoriesList == null || categoriesList.isEmpty()) {
+            throw new IllegalArgumentException("Нельзя передавать пустые категории");
+        }
+        this.categoriesList = categoriesList;
     }
 
     public Category(Map<String, List<String>> hangmanWords) {
-        this.categoriesArray = hangmanWords.keySet().stream().toList();
+        this(hangmanWords.keySet().stream().toList());
     }
 
+    public String setUsingCategory(String usingCategory) {
+        if (!categoriesList.contains(usingCategory)) {
+            throw new IllegalArgumentException("Категория " + usingCategory + " не может быть выбрана");
+        } else if (this.usingCategory != null) {
+            throw new IllegalArgumentException("Категория уже выбрана!");
+        } else {
+            this.usingCategory = usingCategory;
+        }
+        return "Категория " + usingCategory + " успешно выбрана";
+    }
+
+    public List<String> getCategoriesList() {
+        return Collections.unmodifiableList(categoriesList);
+    }
 
     public List<String> randomizerCategories(int n) {
         if (n <= 0) {
             throw new IllegalArgumentException("You isn't choose categories in Array");
         }
-        if (n > categoriesArray.size()) {
+        if (n > categoriesList.size()) {
             throw new IllegalArgumentException("You choose more categories than in Array");
         }
-        Collections.shuffle(categoriesArray);
-        return categoriesArray.subList(0, n);
+        Collections.shuffle(categoriesList);
+        return categoriesList.subList(0, n);
     }
 }
