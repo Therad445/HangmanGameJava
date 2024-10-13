@@ -4,7 +4,7 @@ import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class HangmanPaint {
-    private final String[] HANGMAN_PAINT = {
+    private final String[] hangmanPaint = {
         "",
         " O ",
         " O \n | ",
@@ -13,12 +13,12 @@ public class HangmanPaint {
         " O \n/0\\ \n/ ",
         " O \n/0\\ \n/ \\"
     };
-    private final int MAX_ATTEMPTS = 6;
+    private final int maxAttempts = 6;
 
     public String hangmanPaint(int attempts) {
-        if (attempts > MAX_ATTEMPTS || attempts < 0) {
+        if (attempts > maxAttempts || attempts < 0) {
             throw new IllegalArgumentException(attempts + " - это неправильное количество попыток");
         }
-        return HANGMAN_PAINT[MAX_ATTEMPTS - attempts];
+        return hangmanPaint[maxAttempts - attempts];
     }
 }

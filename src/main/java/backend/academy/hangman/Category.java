@@ -23,7 +23,7 @@ public class Category {
 
     public String setUsingCategory(String usingCategory) {
         if (!categoriesList.contains(usingCategory)) {
-            throw new IllegalArgumentException("Категория " + usingCategory + " не может быть выбрана");
+            throw new IllegalArgumentException("Такая категория " + usingCategory + " не может быть выбрана");
         } else if (this.usingCategory != null) {
             throw new IllegalArgumentException("Категория уже выбрана!");
         } else {

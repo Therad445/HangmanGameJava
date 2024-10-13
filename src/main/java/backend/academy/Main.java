@@ -5,6 +5,7 @@ import backend.academy.hangman.Difficulty;
 import backend.academy.hangman.HangmanData;
 import backend.academy.hangman.HangmanGame;
 import backend.academy.hangman.Words;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
@@ -13,7 +14,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class Main {
     public static void main(String[] args) {
-        try (Scanner scanner = new Scanner(System.in)) {
+        try (Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8)) {
 
             Category categories = new Category(HangmanData.getHangmanData());
             log.info("Выберите категорию:\n{}", String.join(", ", categories.getCategoriesList()));
@@ -27,7 +28,8 @@ public class Main {
             Words words = new Words(HangmanData.getHangmanData().get(category));
             log.info("Слово выбрано.");
 
-            HangmanGame game = new HangmanGame(categories.usingCategory(), words.usingWord(), difficulties.attemptsLeft());
+            HangmanGame game = new HangmanGame(categories.usingCategory(), words.usingWord(),
+                difficulties.attemptsLeft());
             log.info("Игра началась:");
             while (!game.gameOver()) {
                 game.displayInfo();
@@ -35,8 +37,7 @@ public class Main {
                 char symbol = scanner.nextLine().charAt(0);
                 game.inputChar(symbol);
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             log.error("Произошла ошибка: {}", e.getMessage());
         }
     }
