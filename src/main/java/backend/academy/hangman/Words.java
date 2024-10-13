@@ -23,6 +23,8 @@ public class Words {
     private void randomWord() {
         if (usingWord != null) {
             throw new IllegalArgumentException("Загаданное слово уже выбрано");
+        } else if (wordsList.size() < 2) {
+            throw new IllegalArgumentException("Слишком мало слов, чтобы выбор был случайным");
         }
         ThreadLocalRandom RANDOM = ThreadLocalRandom.current();
         int indexRandomElement = RANDOM.nextInt(0, (wordsList.size() - 1));
