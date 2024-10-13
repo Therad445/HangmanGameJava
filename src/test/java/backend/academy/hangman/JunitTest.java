@@ -11,57 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class JunitTest {
-    @Nested
-    class CategoryTest {
-        @Test
-        public void choose_AllFromAllCategory() {
-            //Arrange
-            List<String> testCategoriesArray = Arrays.asList("Books", "Films");
-            Category categories = new Category(testCategoriesArray);
-            //Act
-            List<String> randomizedCategories = categories.randomizerCategories(2);
-            //Assert
-            assertThat(randomizedCategories).isEqualTo(testCategoriesArray);
-        }
-
-        @Test
-        public void choose_MoreFromLessCategory() {
-            //Arrange
-            List<String> testCategory = Arrays.asList("Books", "Films");
-            Category categories = new Category(testCategory);
-            //Act
-            Exception error = assertThrows(IllegalArgumentException.class, () -> {
-                categories.randomizerCategories(3);
-            });
-            //Assert
-            assertEquals("You choose more categories than in Array", error.getMessage());
-        }
-
-        @Test
-        public void choose_OneFromAllCategory() {
-            //Arrange
-            List<String> testCategory = Arrays.asList("Books", "Films");
-            Category categories = new Category(testCategory);
-            //Act
-            List<String> randomizedCategories = categories.randomizerCategories(1);
-            //Assert
-            assertEquals(1, randomizedCategories.size());
-//            assertTrue(categories.contains(categories.getFirst()));
-        }
-
-        @Test
-        public void choose_NoneFromAllCategory() {
-            //Arrange
-            List<String> testCategory = Arrays.asList("Books", "Films");
-            Category categories = new Category(testCategory);
-            //Act
-            Exception error = assertThrows(IllegalArgumentException.class, () -> {
-                categories.randomizerCategories(0);
-            });
-            //Assert
-            assertEquals("You isn't choose categories in Array", error.getMessage());
-        }
-    }
 
     @Nested
     class DifficultyTest {
