@@ -1,7 +1,6 @@
 package backend.academy.hangman;
 
 import lombok.Getter;
-import lombok.Setter;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -10,16 +9,16 @@ import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Words {
-    private static final Map<String, List<String>> HANGMAN_WORDS = Collections.unmodifiableMap(createHangmanWords());
+    private static final Map<String, List<String>> HANGMAN_WORDS = createHangmanWords();
     private final List<String> wordsList;
     @Getter
     private String usingWord;
 
     public Words(List<String> wordsList) {
         if (wordsList == null || wordsList.isEmpty()) {
-            throw new IllegalArgumentException("Данные не могут быть пустыми");
+            throw new IllegalArgumentException("Нужно указать слова");
         }
-        this.wordsList = wordsList;
+        this.wordsList = Collections.unmodifiableList(wordsList);
         randomWord();
     }
 
@@ -38,7 +37,9 @@ public class Words {
 
     private static void addCategory(Map<String, List<String>> map, String category, String... words) {
         if (category == null || category.isEmpty()) {
-            throw new IllegalArgumentException("Данные не могут быть пустыми");
+            throw new IllegalArgumentException("Нужно указать категории");
+        } else if (words == null || words.length == 0) {
+            throw new IllegalArgumentException("Нужно указать слова");
         }
         map.put(category, Arrays.asList(words));
     }
@@ -49,6 +50,6 @@ public class Words {
         addCategory(words, "фрукты", "яблоко", "грейпфрукт", "апельсин", "мандарин", "груша", "огурец");
         addCategory(words, "ягоды", "клубника", "ежевика", "голубика", "брусника", "земляника");
         addCategory(words, "молочные продукты", "сыр", "йогурт", "молоко", "масло", "кефир");
-        return words;
+        return Collections.unmodifiableMap(words);
     }
 }
