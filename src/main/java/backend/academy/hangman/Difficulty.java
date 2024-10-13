@@ -36,7 +36,7 @@ public class Difficulty {
                 log.info("Выбрана тяжелая сложность");
                 break;
             default:
-                throw new IllegalArgumentException("Invalid difficulty level: " + level);
+                throw new IllegalArgumentException("Неверный уровень сложности: " + level);
         }
     }
 }
