@@ -35,15 +35,4 @@ public class Category {
     public List<String> getCategoriesList() {
         return Collections.unmodifiableList(categoriesList);
     }
-
-    public List<String> randomizerCategories(int n) {
-        if (n <= 0) {
-            throw new IllegalArgumentException("You isn't choose categories in Array");
-        }
-        if (n > categoriesList.size()) {
-            throw new IllegalArgumentException("You choose more categories than in Array");
-        }
-        Collections.shuffle(categoriesList);
-        return categoriesList.subList(0, n);
-    }
 }
