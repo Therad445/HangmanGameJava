@@ -1,12 +1,7 @@
 package backend.academy.hangman;
 
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
-import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
@@ -17,8 +12,6 @@ public class HangmanGame {
     private final StringBuilder usedWord;
     private final Set<Character> usedCharacters;
     private int attempts;
-
-
 
     public HangmanGame(String category, String word, int attempts) {
         this.category = category;
