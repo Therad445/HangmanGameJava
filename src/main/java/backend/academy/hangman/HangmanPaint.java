@@ -15,7 +15,7 @@ public class HangmanPaint {
     };
     private static final int MAX_ATTEMPTS = 6;
 
-    static String hangmanPaint(int attempts) {
+    public static String hangmanPaint(int attempts) {
         if (attempts > MAX_ATTEMPTS || attempts < 0) {
             throw new IllegalArgumentException(attempts + " - это неправильное количество попыток");
         }
