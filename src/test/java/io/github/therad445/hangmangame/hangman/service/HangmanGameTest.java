@@ -1,8 +1,6 @@
-package backend.academy.hangman;
+package io.github.therad445.hangmangame.hangman.service;
 
-import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
-import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

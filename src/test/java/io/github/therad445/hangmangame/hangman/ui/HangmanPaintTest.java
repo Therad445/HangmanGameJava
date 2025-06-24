@@ -1,4 +1,4 @@
-package backend.academy.hangman;
+package io.github.therad445.hangmangame.hangman.ui;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;

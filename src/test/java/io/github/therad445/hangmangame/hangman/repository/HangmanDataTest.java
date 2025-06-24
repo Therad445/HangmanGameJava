@@ -1,9 +1,7 @@
-package backend.academy.hangman;
+package io.github.therad445.hangmangame.hangman.repository;
 
 import org.junit.jupiter.api.Test;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,4 +1,4 @@
-package backend.academy.hangman;
+package io.github.therad445.hangmangame.hangman.model;
 
 import org.junit.jupiter.api.Test;
 import java.util.Arrays;

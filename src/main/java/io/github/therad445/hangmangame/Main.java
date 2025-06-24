@@ -1,10 +1,10 @@
-package backend.academy;
+package io.github.therad445.hangmangame;
 
-import backend.academy.hangman.Category;
-import backend.academy.hangman.Difficulty;
-import backend.academy.hangman.HangmanData;
-import backend.academy.hangman.HangmanGame;
-import backend.academy.hangman.Words;
+import io.github.therad445.hangmangame.hangman.model.Category;
+import io.github.therad445.hangmangame.hangman.model.Difficulty;
+import io.github.therad445.hangmangame.hangman.repository.HangmanData;
+import io.github.therad445.hangmangame.hangman.service.HangmanGame;
+import io.github.therad445.hangmangame.hangman.model.Words;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 import lombok.experimental.UtilityClass;

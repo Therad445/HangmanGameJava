@@ -1,4 +1,4 @@
-package backend.academy.hangman;
+package io.github.therad445.hangmangame.hangman.ui;
 
 import lombok.experimental.UtilityClass;
 

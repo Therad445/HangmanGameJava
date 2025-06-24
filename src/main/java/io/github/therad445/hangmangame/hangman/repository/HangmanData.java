@@ -1,4 +1,4 @@
-package backend.academy.hangman;
+package io.github.therad445.hangmangame.hangman.repository;
 
 import java.util.Arrays;
 import java.util.Collections;

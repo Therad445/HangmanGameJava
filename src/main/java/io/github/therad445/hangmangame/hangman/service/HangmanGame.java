@@ -1,7 +1,9 @@
-package backend.academy.hangman;
+package io.github.therad445.hangmangame.hangman.service;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import io.github.therad445.hangmangame.hangman.ui.HangmanPaint;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
